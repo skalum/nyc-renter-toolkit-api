@@ -4,5 +4,7 @@ Rails.application.routes.draw do
 
   scope '/api' do
     resources :addresses
+    resources :users, only: [:create]
+    post '/auth', to: 'auth#login'
   end
 end

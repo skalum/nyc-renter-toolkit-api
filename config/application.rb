@@ -17,6 +17,10 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Dotenv::Railtie.load
+
+HOSTNAME = ENV['HOSTNAME']
+
 module NycRenterToolkitApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -30,6 +34,7 @@ module NycRenterToolkitApp
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+    config.autoload_paths << Rails.root.join('lib')
     config.api_only = true
     config.app_generators.scaffold_controller = :scaffold_controller
 
