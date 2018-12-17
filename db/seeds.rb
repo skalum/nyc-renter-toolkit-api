@@ -9,10 +9,9 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 
 test_user = User.create(
   email: 'stkalum@gmail.com',
-  password: 'password'
-)
-
-test_address = Address.create(
-  buildingIdentificationNumber: "1053397",
-  user: test_user
+  password: 'password',
+  bin: '',
+  houseNumber: '',
+  street: '',
+  zip: '',
 )

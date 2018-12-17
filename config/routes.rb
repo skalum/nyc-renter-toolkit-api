@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   scope '/api' do
-    resources :addresses
-    resources :users, only: [:create]
+    resources :users
     post '/auth', to: 'auth#login'
   end
 end
